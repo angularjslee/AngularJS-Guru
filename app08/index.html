@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf 8">
+    <title>Guru99</title>
+    <script src="../lib/angular-1.8.0/angular.min.js"></script>
+    <script src="../lib/angular-1.8.0/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.min.js"></script>
+        <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>-->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-route.js"></script>-->
+</head>
+
+<body>
+<h1>Global Event</h1>
+
+<div ng-app="demo08">
+    <div class="container">
+        <li><a href="#!NewEvent">Add New Event</a></li>
+        <li><a href="#!DisplayEvent">Display Event</a></li>
+
+        <ng-view></ng-view>
+        <!--<div ng-view></div>-->
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

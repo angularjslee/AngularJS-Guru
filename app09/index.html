@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf 8">
+    <title>Guru99</title>
+    <script src="../lib/angular-1.8.0/angular.js"></script>
+</head>
+
+<body>
+<div ng-app="" ng-init="margin=2;profit=200;firstName='Guru';lastName='99';
+                        person={firstName:'Guru',lastName:'99'};
+                        marks=[1,15,19]">
+    Addition : {{6+9}}
+    <hr>
+    Total profit margin
+    {{margin*profit}}
+    <hr>
+    &nbsp;&nbsp;&nbsp;
+    First Name : {{firstName}}<br>&nbsp;&nbsp;&nbsp;
+    last Name : {{lastName}}
+    <hr>
+    &nbsp;&nbsp;&nbsp;
+    First Name : {{person.firstName}}<br>&nbsp;&nbsp;&nbsp;
+    Last Name : {{person.lastName}}
+    <hr>
+    Student Marks<br>&nbsp;&nbsp;&nbsp;
+    Subject1 : {{marks[0] }}<br>&nbsp;&nbsp;&nbsp;
+    Subject2 : {{marks[1] }}<br>&nbsp;&nbsp;&nbsp;
+    Subject3 : {{marks[2] }}<br>&nbsp;&nbsp;&nbsp;
+</div>
+
+<!--<script src="app.js"></script>-->
+</body>
+</html>
