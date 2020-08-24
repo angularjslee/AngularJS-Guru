@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf 8">
+    <title>Guru99</title>
+</head>
+
+<body>
+
+<div ng-app="demo04" ng-controller="DemoController">
+    <h1>Topics</h1>
+    <ul>
+        From Array-Object:
+        <li ng-repeat="tpname in TopicNames">
+            {{tpname.name}}
+        </li>
+    </ul>
+    <ul>
+        From JSON:
+        <li ng-repeat="(key, value) in json">
+            {{key}} = {{value}}
+        </li>
+    </ul>
+    <ul>
+        From Array
+        <li ng-repeat="(index, value) in array1">
+            #{{index}} = {{value}}
+        </li>
+    </ul>
+    <ul>
+        User List
+        <li ng-repeat="user in users">
+            <strong>Name: </strong>{{user.name}},
+            <strong>Age: </strong>{{user.age}}
+        </li>
+    </ul>
+</div>
+
+<script src="../lib/angular-1.8.0/angular.js"></script>
+<script src="../lib/bootstrap-4.3.1-dist/js/bootstrap.js"></script>
+<script src="../lib/jquery-3.5.1.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
