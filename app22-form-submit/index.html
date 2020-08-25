@@ -5,12 +5,25 @@
     <title>Guru99</title>
     <script src="../lib/angular-1.8.0/angular.js"></script>
     <script src="../lib/bootstrap-4.3.1-dist/js/bootstrap.js"></script>
+    <script src="../lib/bootstrap-4.3.1-dist/css/bootstrap.min.css"></script>
     <script src="../lib/jquery-3.5.1.min.js"></script>
 </head>
 
 <body ng-app="demo22">
+<div ng-controller="demo22Ctrl">
+    <form ng-submit="Display()">
+        &nbsp;&nbsp;&nbsp;
+        Enter which topic you would like to learn
+        <input type="text" ng-model="Topic"><br>&nbsp;&nbsp;&nbsp;
 
-    <script src="app.js"></script>
+        <input type="submit" value="Submit"/>
+
+        <ul ng-repeat="topicname in AllTopic">
+            <li>{{topicname}}</li>
+        </ul>
+    </form>
+</div>
+<script src="app.js"></script>
 
 </body>
 </html>
