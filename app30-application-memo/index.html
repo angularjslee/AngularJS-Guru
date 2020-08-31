@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<script src= "../lib/angular-1.8.0/angular.min.js"></script>
+<body ng-app="myApp" ng-controller="todoCtrl">
+
+<h2>My Memo</h2>
+
+<form ng-submit="todoAdd()">
+    <input type="text" ng-model="todoInput" size="50" placeholder="add">
+    <input type="submit" value="Add">
+</form>
+
+<br>
+
+<div ng-repeat="x in todoList">
+    <input type="checkbox" ng-model="x.done"> <span ng-bind="x.todoText"></span>
+</div>
+
+<p><button ng-click="remove()">Delete Records</button></p>
+
+<script src="app.js"></script>
+
+</body>
+</html>

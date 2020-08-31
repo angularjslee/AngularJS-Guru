@@ -46,6 +46,17 @@
             <td>{{ptutor.Description}}</td>
         </tr>
     </table>
+    <div>Even/Odd Table</div>
+    <table>
+        <tr ng-repeat="ptutor in tutorial">
+            <td ng-if="$odd" style="background-color:#f1f1f1">{{$index + 1}}</td>
+            <td ng-if="$even">{{$index + 1}}</td>
+            <td ng-if="$odd" style="background-color:#f1f1f1">{{ptutor.Name}}</td>
+            <td ng-if="$even">{{ptutor.Name}}</td>
+            <td ng-if="$odd" style="background-color:#f1f1f1">{{ptutor.Description}}</td>
+            <td ng-if="$even">{{ptutor.Description}}</td>
+        </tr>
+    </table>
 </div>
 <script src="app.js"></script>
 

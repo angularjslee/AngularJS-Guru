@@ -8,9 +8,11 @@
     <script src="../lib/jquery-3.5.1.min.js"></script>
 </head>
 
-<body ng-app="demo21">
-
-    <script src="app.js"></script>
+<body ng-app="demo19" ng-controller="ajaxCtrl" >
+<div ng-repeat="name in names">
+    {{name.package.name}}
+</div>
+<script src="app.js"></script>
 
 </body>
 </html>

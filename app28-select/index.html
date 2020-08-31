@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf 8">
+    <title>Guru99</title>
+</head>
+
+<body ng-app="demo28">
+<div ng-controller="selectCtrl">
+    <select ng-init="selectedName = names[0]"
+            ng-model="selectedName"
+            ng-options="x for x in names"></select>
+
+    <hr>
+    <!--ng-options 中 x 是一个object-->
+    <!--ng-repeat 中 x 是一个字符串-->
+    <select ng-model="selectedSite" ng-options="x.site for x in sites"></select>
+
+    <h1>Youe selection is: {{selectedSite.site}}</h1>
+
+    <p>The address is: {{selectedSite.url}}</p>
+    <hr>
+    <select ng-model="selectedSite" ng-options="x for (x, y) in places"></select>
+    <br>
+    <br>
+    <select ng-model="selectedCar" ng-options="y.model for (x, y) in cars"></select>
+</div>
+<!--<script src="https://code.angularjs.org/1.6.9/angular.js"></script>-->
+<script src="../lib/angular-1.8.0/angular.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

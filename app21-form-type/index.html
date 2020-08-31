@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf 8">
+    <title>Guru99</title>
+    <script src="../lib/angular-1.8.0/angular.min.js"></script>
+    <script src="../lib/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+    <script src="../lib/bootstrap-4.3.1-dist/css/bootstrap.min.css"></script>
+    <script src="../lib/jquery-3.5.1.min.js"></script>
+</head>
+
+<body ng-app="demo21Type">
+<div ng-controller="typeCtrl">
+    <h3>checkbox</h3>
+
+    <form>
+        Check to show a header:
+        <input type="checkbox" ng-model="myVar1">
+    </form>
+    <h1 ng-show="myVar1">My Header</h1>
+    <hr>
+    <h3>Radio</h3>
+
+    <form>
+        Select One Option:
+        <input type="radio" ng-model="myVar2" value="dogs">Dogs
+        <input type="radio" ng-model="myVar2" value="tuts">Tutorials
+        <input type="radio" ng-model="myVar2" value="cars">Cars
+    </form>
+    <div ng-switch="myVar2">
+        <div ng-switch-when="dogs">
+            <h1>Dogs</h1>
+
+            <p>Welcome to a world of dogs.</p>
+        </div>
+        <div ng-switch-when="tuts">
+            <h1>Tutorials</h1>
+
+            <p>Learn from examples.</p>
+        </div>
+        <div ng-switch-when="cars">
+            <h1>Cars</h1>
+
+            <p>Read about cars.</p>
+        </div>
+    </div>
+    <hr>
+    <h3>Dropdown List</h3>
+
+    <form>
+        Select One Option:
+        <select ng-model="myVar3">
+            <option value="">
+            <option value="dogs">Dogs
+            <option value="tuts">Tutorials
+            <option value="cars">Cars
+        </select>
+    </form>
+    <div ng-switch="myVar3">
+        <div ng-switch-when="dogs">
+            <h1>Dogs</h1>
+
+            <p>Welcome to a world of dogs.</p>
+        </div>
+        <div ng-switch-when="tuts">
+            <h1>Tutorials</h1>
+
+            <p>Learn from examples.</p>
+        </div>
+        <div ng-switch-when="cars">
+            <h1>Cars</h1>
+
+            <p>Read about cars.</p>
+        </div>
+    </div>
+    <hr>
+</div>
+<div ng-controller="formCtrl">
+    <form novalidate>
+        First Name:<br>
+        <input type="text" ng-model="user.firstName"><br>
+        Last Name:<br>
+        <input type="text" ng-model="user.lastName">
+        <br><br>
+        <button ng-click="reset()">RESET</button>
+    </form>
+    <p>form = {{user}}</p>
+
+    <p>master = {{master}}</p>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

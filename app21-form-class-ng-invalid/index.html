@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf 8">
+    <title>Guru99</title>
+    <script src="../lib/angular-1.8.0/angular.min.js"></script>
+    <script src="../lib/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+    <script src="../lib/bootstrap-4.3.1-dist/css/bootstrap.min.css"></script>
+    <script src="../lib/jquery-3.5.1.min.js"></script>
+    <style>
+        input.ng-invalid {
+            background-color: pink;
+        }
+
+        input.ng-valid {
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+
+<body ng-app="">
+    <form name="myForm">
+        <input name="myName" ng-model="myName" required>
+    </form>
+    <div>{{myName}}</div>
+    <script src="app.js"></script>
+</body>
+</html>

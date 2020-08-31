@@ -3,27 +3,56 @@
 <head>
     <meta charset="utf 8">
     <title>Guru99</title>
+    <script src="../lib/angular-1.8.0/angular.js"></script>
+    <script src="../lib/bootstrap-4.3.1-dist/js/bootstrap.js"></script>
+    <script src="../lib/jquery-3.5.1.min.js"></script>
 </head>
 
 <body>
-<div ng-app="demo07" ng-controller="DemoCtrl7">
-    <form>
-        &nbsp;&nbsp;&nbsp;Topic Description:<br> <br>
-
+<div ng-app="demo07">
+    <form ng-controller="DemoCtrl7">
+        Topic Description:<br> <br>
         Name : <input type="text" ng-model="pName" value="Guru99"><br>
-        &nbsp;&nbsp;&nbsp;
-        Topic : <br>&nbsp;&nbsp;&nbsp;
-
-        <select ng-model="Topics">
-            <option>{{Topics.option1}}</option>
-            <option>{{Topics.option2}}</option>
+        Topic : <br>
+        <select name="Topic" ng-model="Topics.nothing">
+            <option value="{{Topics.option1}}">{{Topics.option1}}</option>
+            <option value="{{Topics.option2}}">{{Topics.option2}}</option>
         </select>
+
+    </form>
+    <hr>
+    <hr>
+    <hr>
+    <!--选中之后没有填入？-->
+    <h4>After Seleted</h4>
+    <form name="myForm" ng-controller="ExampleController">
+        <label for="singleSelect"> Single select: </label><br>
+        <select name="singleSelect" ng-model="data.singleSelect">
+            <option value="option-1">Option 1</option>
+            <option value="option-2">Option 2</option>
+            <option value="option-3">Option 3</option>
+        </select><br>
+
+        <label for="singleSelect"> Single select with "not selected" option and dynamic option values: </label><br>
+        <select name="singleSelect" id="singleSelect" ng-model="data.singleSelect">
+            <option value="">---Please select---</option> <!-- not selected / blank option -->
+            <option value="{{data.option1}}">Option 1</option> <!-- interpolation -->
+            <option value="option-2">Option 2</option>
+        </select><br>
+        <button ng-click="forceUnknownOption()">Force unknown option</button><br>
+        <tt>singleSelect = {{data.singleSelect}}</tt>
+
+        <hr>
+        <label for="multipleSelect"> Multiple select: </label><br>
+        <select name="multipleSelect" id="multipleSelect" ng-model="data.multipleSelect" multiple>
+            <option value="option-1">Option 1</option>
+            <option value="option-2">Option 2</option>
+            <option value="option-3">Option 3</option>
+        </select><br>
+        <tt>multipleSelect = {{data.multipleSelect}}</tt><br/>
     </form>
 </div>
 
-<script src="../lib/angular-1.8.0/angular.js"></script>
-<script src="../lib/bootstrap-4.3.1-dist/js/bootstrap.js"></script>
-<script src="../lib/jquery-3.5.1.min.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

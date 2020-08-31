@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf 8">
+    <title>Guru99</title>
+</head>
+
+<body ng-app="demo27">
+<div ng-controller="locationCtrl">
+    <div>
+        {{myUrl}}
+    </div>
+</div>
+
+<div ng-controller="timeoutCtrl">
+    <div>
+        <p>show after two seconds</p>
+        {{myHeader}}
+    </div>
+</div>
+
+<div ng-controller="intervalCtrl">
+    <p>Now the time is</p>
+    <h1>{{theTime}}</h1>
+</div>
+
+<div ng-controller="hexafyCtrl">
+    <p>The hex of 255 is:</p>
+    <h1>{{hex}}</h1>
+</div>
+
+<div >
+    <p>use service in filter</p>
+    <h1>{{255 | myFormat}}</h1>
+</div>
+
+
+
+
+<!--<script src="https://code.angularjs.org/1.6.9/angular.js"></script>-->
+<script src="../lib/angular-1.8.0/angular.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

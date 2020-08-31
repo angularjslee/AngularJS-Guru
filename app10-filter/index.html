@@ -5,8 +5,8 @@
     <title>Guru99</title>
 </head>
 
-<body>
-<div ng-app="demo10" ng-controller="DemoController">
+<body ng-app="demo10" >
+<div ng-controller="DemoController">
     Tutorial Name : <input type="text" ng-model="tutorialName"><br>
     <h3>Filter</h3> <br>
     <strong>Lowercase & Uppercase</strong> <br>
@@ -22,6 +22,27 @@
     <strong>json</strong><br>
     This tutorial is {{tutorial | json}}
 
+</div>
+<hr>
+<hr>
+<hr>
+<!--智能社-->
+<div ng-controller="zhinengsheCtrl">
+    <ul>
+        <li ng-repeat="v in arr">{{v | currency}}</li>
+    </ul>
+    <div>{{time | date: "yyyy.mm.dd HH:mm:ss"}}</div>
+    <ul>
+        <li ng-repeat="v in arr">{{v | customerFilter}}</li>
+    </ul>
+</div>
+<hr>
+<div ng-controller="accountantCtrl">
+    <p ng-repeat="data in arr">
+        Product: {{data.name}}
+        Price: {{data.count * data.price |  my_price: 55}}
+        <!--55 传给 arg-->
+    </p>
 </div>
 
 <script src="../lib/angular-1.8.0/angular.js"></script>

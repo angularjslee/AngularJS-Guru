@@ -5,8 +5,8 @@
     <title>Guru99</title>
 </head>
 
-<body>
-<div ng-app="demo06" ng-controller="DemoCtrl">
+<body ng-app="demo06">
+<div ng-controller="DemoCtrl">
     <form>
         &nbsp;&nbsp;&nbsp;Topic Description:<br> <br>
         &nbsp;&nbsp;&nbsp;
@@ -15,17 +15,15 @@
     </form>
 </div>
 
-<div ng-app="demo06-1" ng-controller="DemoCtrl1">
+<div ng-controller="DemoCtrl1">
     <form>
-        &nbsp;&nbsp;&nbsp;Topic Description:<br> <br>
-        &nbsp;&nbsp;&nbsp;
+        Topic Description:<br>
         Name : <input type="text" ng-model="pname"><br>
-        &nbsp;&nbsp;&nbsp;
-        Topic : <br>&nbsp;&nbsp;&nbsp;
+        <p>{{pname}}</p>
+        Topic : <br>
         <input type="checkbox" ng-model="Topic.Controller">
         Controller
         <br>
-        &nbsp;&nbsp;&nbsp;
         <input type="checkbox" ng-model="Topic.Models">Models
     </form>
 </div>

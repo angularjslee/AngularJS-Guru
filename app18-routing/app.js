@@ -15,7 +15,8 @@ sampleApp.config(function ($routeProvider) {                            // This 
     when("/Node", {
         templateUrl: 'Node.html',
         controller: 'NodeController'
-    });
+    })
+        .otherwise({redirectTo: '/'});
 //}]);
 });
 

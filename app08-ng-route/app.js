@@ -1,7 +1,7 @@
 'use strict';
 var sampleApp = angular.module('demo08', ["ngRoute"]);
-sampleApp.config(function ($routProvider) {
-    $routProvider
+sampleApp.config(function ($routeProvider) {
+    $routeProvider
         .when("/NewEvent", {
             templateUrl: "add_event.html",
             controller: "AddEventController"

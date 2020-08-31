@@ -3,12 +3,67 @@
 <head>
     <meta charset="utf 8">
     <title>Guru99</title>
+    <style>
+        .more {
+            width: 300px;
+            height: 60px;
+            line-height:20px;
+            overflow: hidden;
+            border:1px solid black;
+        }
+        .more2 {
+            width: 300px;
+            line-height:20px;
+            overflow: hidden;
+            border:1px solid black;
+        }
+    </style>
 </head>
 
-<body>
-<div ng-app="demo13" ng-controller="DemoController">
+<body ng-app="demo13">
+<div ng-controller="DemoController">
     <div ng-guru=""></div>
+</div>
+<hr>
+<hr>
+<!--智能社-->
+<div>
+    <p>Basic Four types</p>
+    <elementdirective></elementdirective>
+    <hr>
+    <div attributedirective=""></div>
+    <hr>
+    <div class="classdirective"></div>
+    <hr>
+    <!--两边必须有空格-->
+    <!-- directive: commentdirective -->
 
+</div>
+<hr>
+<hr>
+<div>
+    <div cross="">abc</div>
+    <div cross>bcd</div>
+</div>
+<!--<div ng-init="show=true">   // 或者在controller 里定义 $scope-->
+<div>
+    <showmore>
+        asdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoiasdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoi
+        asdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoiasdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoiasdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoiasdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoi
+        asdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoiasdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoiasdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoiasdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoi
+        asdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoiasdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoiasdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoiasdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoi
+        asdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoiasdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoiasdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoiasdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoi
+        asdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoiasdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoiasdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoiasdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoi
+        asdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoiasdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoiasdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoiasdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoi
+        asdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoiasdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoiasdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoiasdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoi
+        asdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoiasdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoiasdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoiasdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoi
+        asdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoiasdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoiasdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoiasdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoi
+        asdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoiasdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoiasdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoiasdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoi
+        asdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoiasdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoiasdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoiasdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoi
+        asdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoiasdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoiasdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoiasdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoi
+        asdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoiasdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoiasdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoiasdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoi
+        asdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoiasdjfoijoijgoijealsdjfojq0joidjoijoigjoiwjeoijoidjgoijewojoi
+    </showmore>
 </div>
 
 <script src="../lib/angular-1.8.0/angular.js"></script>
