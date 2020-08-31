@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        AngularJs ng-minlength Form Validation Example
+    </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body>
+<div ng-app="formApp">
+    <h3>AngularJs ng-minlength Form Validation Example</h3>
+
+    <form name="personForm" novalidate ng-submit="personForm.$valid &&sendForm()" ng-controller="formCtrl">
+        First Name:<input type="text" name="pincode" ng-model="txtpin" ng-minlength="5" required/>
+        <span style="color:Red" ng-show="personForm.pincode.$error.required"> Required! </span>
+        <span style="color:Red" ng-show="personForm.pincode.$dirty&&personForm.pincode.$error.minlength"> Minimum 5 Characters Required </span>
+        <br/><br/>
+        <button type="submit">Submit Form</button>
+        <br/><br/>
+        <span>{{msg}}</span>
+    </form>
+    <hr>
+    <h3>AngularJs ng-maxlength Form Validation Example</h3>
+
+    <form name="personForm" novalidate ng-submit="personForm.$valid &&sendForm()" ng-controller="ngmaxlengthCtrl">
+        Pin Code:<input type="text" name="pincode" ng-model="txtpin" ng-maxlength="5" required/>
+        <span style="color:Red" ng-show="personForm.pincode.$error.required"> Required! </span>
+        <span style="color:Red" ng-show="personForm.pincode.$dirty&&personForm.pincode.$error.maxlength"> Maximum 5 Characters Allowed </span>
+        <br/><br/>
+        <button type="submit">Submit Form</button>
+        <br/><br/>
+        <span>{{msg}}</span>
+    </form>
+    <hr>
+    <form name="personForm" novalidate ng-submit="personForm.$valid &&sendForm()" ng-controller="ngminmaxlengthCtrl">
+        Pin Code: <input type="text" name="pincode" ng-model="txtpin" ng-minlength="3" ng-maxlength="5" required />
+        <span style="color:Red" ng-show="personForm.pincode.$error.required"> Required! </span>
+        <span style="color:Red" ng-show="personForm.pincode.$dirty&&personForm.pincode.$error.minlength"> Minimum 3 Characters Required </span>
+        <span style="color:Red" ng-show="personForm.pincode.$dirty&&personForm.pincode.$error.maxlength"> Maximum 5 Characters Allowed </span>
+        <br /><br />
+        <button type="submit">Submit Form</button><br /><br />
+        <span>{{msg}}</span>
+    </form>
+</div>
+</body>
+</html>

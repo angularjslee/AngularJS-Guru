@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf 8">
+    <meta charset="utf-8">
     <title>Guru99</title>
     <script src="../lib/angular-1.8.0/angular.js"></script>
     <script src="../lib/bootstrap-4.3.1-dist/js/bootstrap.js"></script>
@@ -9,14 +9,15 @@
 </head>
 
 <body>
-<div ng-app="dem015">
-    <pane title="{{title}}">Angular JS</pane>
-    <div ng-controller="myCtrl as VM">
-        <a my-dir
-           attr1="VM.sayHi('Juan')"
-           attr2="VM.sayHi('Juan')"
-           attr3="VM.sayHi('Juan')"
-        ></a>
+<div ng-app="demo15-5">
+    <div  ng-controller="myController">
+        <div>父scope：
+            <div>Say：{{value}}</div>
+        </div>
+        <hr>
+        <div>隔离scope：
+            <div isolated-directive action="click()"></div>
+        </div>
     </div>
 </div>
 

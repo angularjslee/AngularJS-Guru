@@ -1,0 +1,16 @@
+<!Doctype html>
+<html>
+<head>
+    <title>AngularJS $http.jsonp() service example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+<body ng-app="myServiceApp">
+<h2>AngularJS Http Jsonp Service Example</h2>
+<div ng-controller="myServiceCtrl">
+    <h3>Processing $http.jsonp() response in service</h3>
+    <button ng-click="doJSONPRequest()">Click and make JSONP request</button>
+    <p>Data Details: {{details}}</p>
+    <p>Status Code: {{statcode}}</p>
+</div>
+</body>
+</html>

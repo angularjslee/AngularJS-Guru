@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Guru99</title>
+    <script src="../lib/angular-1.8.0/angular.js"></script>
+    <script src="../lib/bootstrap-4.3.1-dist/js/bootstrap.js"></script>
+    <script src="../lib/jquery-3.5.1.min.js"></script>
+</head>
+
+<body>
+<div ng-app="demo15-4">
+    <div ng-controller="myController">
+        <div>父scope：
+            <div>Say：{{user.name}}<br>改变父scope的name：<input type="text" value="" ng-model="user.name"/></div>
+        </div>
+        <hr>
+        <div>隔离scope：
+            <div isolated-directive user="user"></div>
+        </div>
+        <hr>
+        <div>隔离scope（使用{{name}}）：
+            <div isolated-directive user="{{user}}"></div>
+        </div>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -9,10 +9,9 @@
     <script src="../lib/jquery-3.5.1.min.js"></script>
 </head>
 
-<body>
-<div>
+<body  ng-app="">
     <!--RUNOOB.COM-->
-    <form ng-app="" name="myForm" ng-init="myText = 'test@gmail.com'">
+    <form name="myForm" ng-init="myText = 'test@gmail.com'">
         Email:
         <input type="email" name="myAddress" ng-model="myText" required>
         <p>Edit email box, view the status</p>
@@ -21,6 +20,16 @@
         <p>Touched: <strong>{{myForm.myAddress.$touched}}</strong> (if clicked, it's true)</p>
         <p>Pristine: <strong>{{myForm.myAddress.$pristine}}</strong> (if no input records, it's true)</p>
 
+    </form>
+    <hr>
+    <hr>
+    <hr>
+    <h2>AngularJS Form Input Fields Validation Example</h2>
+    <form name="personForm">
+        First Name: <input type="text" name="firstname" ng-model="person.fname" required />
+        <span ng-show="personForm.firstname.$touched && personForm.firstname.$invalid "> Required! </span><br /><br />
+        Last Name:<input type="text" name="lastname" ng-model="person.lname" required />
+        <span ng-show="personForm.lastname.$dirty && personForm.lastname.$valid"> Thanks for Text </span><br /><br />
     </form>
     <hr>
     <script src="app.js"></script>

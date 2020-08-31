@@ -15,14 +15,31 @@
         input.ng-valid {
             background-color: lightgreen;
         }
+
+        form.ng-invalid {
+            background-color: pink;
+        }
+
+        form.ng-valid {
+            background-color: lightgreen;
+        }
     </style>
 </head>
 
 <body ng-app="">
-    <form name="myForm">
-        <input name="myName" ng-model="myName" required>
-    </form>
-    <div>{{myName}}</div>
-    <script src="app.js"></script>
+<input name="myName" ng-model="myName" required>
+
+<div>{{myName}}</div>
+
+<hr>
+<hr>
+<hr>
+<form name="personForm">
+    <br/>
+    First Name:<input type="text" name="firstname" ng-model="person.fname" required/><br/><br/>
+    Last Name:<input type="text" name="lastname" ng-model="person.lname" required/>
+    <br/><br/>
+</form>
+<script src="app.js"></script>
 </body>
 </html>

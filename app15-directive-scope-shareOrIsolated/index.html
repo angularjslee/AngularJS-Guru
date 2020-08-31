@@ -9,14 +9,12 @@
 </head>
 
 <body>
-<div ng-app="dem015">
-    <pane title="{{title}}">Angular JS</pane>
-    <div ng-controller="myCtrl as VM">
-        <a my-dir
-           attr1="VM.sayHi('Juan')"
-           attr2="VM.sayHi('Juan')"
-           attr3="VM.sayHi('Juan')"
-        ></a>
+<div ng-app="dem015-2">
+    <div ng-controller="myController">
+        <div share-directive=""></div>
+    </div>
+    <div ng-controller="yourController">
+        <div isolated-directive=""></div>
     </div>
 </div>
 

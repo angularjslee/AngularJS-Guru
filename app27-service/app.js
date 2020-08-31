@@ -4,6 +4,9 @@ var app = angular.module('demo27',[]);
 //$location
 app.controller('locationCtrl', function($scope, $location) {
     $scope.myUrl = $location.absUrl();
+    $scope.urlhost = $location.host();
+    $scope.urlport = $location.port();
+    $scope.urlprotocol = $location.protocol();
 });
 
 //$timeout

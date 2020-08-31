@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        AngularJs Check if at least one checkbox selected or not example
+    </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body ng-app="checkboxApp" ng-controller="checkboxCtrl">
+<div>
+    <h2>AngularJS Check If Checkbox Checked or Not Example</h2>
+    <div ng-repeat="user in arrlist">
+        <input type="checkbox" value="{{user.userid}}" ng-model="user.checked" />
+        <label>{{user.name}}</label>
+    </div><br />
+    <input type="button" id="btnClick" value="Submit" ng-click="checkoptions(arrlist)" /><br /><br />
+    <span style="color:Red">{{msg}}</span>
+</div>
+<hr>
+<div ng-repeat="user in arrlist">
+    <input type="checkbox" />
+    <label>{{user.name}}</label>
+</div>
+</body>
+</html>

@@ -6,29 +6,37 @@
 </head>
 
 <body ng-app="demo27">
+<p>localtion Ctrl</p>
 <div ng-controller="locationCtrl">
-    <div>
-        {{myUrl}}
-    </div>
+    <ul>
+        <li>{{myUrl}}</li>
+        <li>{{urlhost}}</li>
+        <li>{{urlport}}</li>
+        <li>{{urlprotocol}}</li>
+    </ul>
 </div>
-
+<hr>
+<p>timeout Ctrl</p>
 <div ng-controller="timeoutCtrl">
     <div>
         <p>show after two seconds</p>
         {{myHeader}}
     </div>
 </div>
-
+<hr>
+<p interval Ctrl></p>
 <div ng-controller="intervalCtrl">
     <p>Now the time is</p>
     <h1>{{theTime}}</h1>
 </div>
-
+<hr>
+<p>hexafy Ctrl</p>
 <div ng-controller="hexafyCtrl">
     <p>The hex of 255 is:</p>
     <h1>{{hex}}</h1>
 </div>
-
+<hr>
+<p>Server in filter</p>
 <div >
     <p>use service in filter</p>
     <h1>{{255 | myFormat}}</h1>

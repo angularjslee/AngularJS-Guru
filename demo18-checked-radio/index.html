@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        AngularJS Radio Buttons Example with Validations
+    </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body ng-app="radibuttonApp" ng-controller="radiobuttonCtrl">
+<div>
+    <h3>AngularJS Radio Buttons Example with Validations</h3>
+    <input type ="radio" name="userdetails" value="1" ng-model="selectVal" />Suresh<br />
+    <input type ="radio" name="userdetails" value="2" ng-model="selectVal" />Rohini<br />
+    <input type ="radio" name="userdetails" value="3" ng-model="selectVal" />Praveen<br /><br />
+    <input type="button" id="btnClick" value="Submit" ng-click="checkoptions()" /><br /><br />
+    <span style="color:Red">{{msg}}</span>
+    <hr>
+    <div ng-repeat="user in arrlist">
+        <input type="radio" name="userdetails" value="{{user.userid}}"/>
+        <label>{{user.name}}</label>
+    </div>
+</div>
+</body>
+</html>

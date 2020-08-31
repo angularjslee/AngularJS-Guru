@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        AngularJs ng-options to Set Default Value to Dropdown List Example
+    </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body  ng-app="ngoptionsApp" ng-controller="ngoptionsCtrl">
+<div>
+    <h3>AngularJs ng-options to Set Default Value</h3>
+    <select name="users" ng-options="user.name for user in arrlist" ng-model="userselected">
+        <option value="">--Select User--</option>
+    </select><br /><br />
+    <span>User Name: {{userselected.name}}, UserId: {{userselected.userid}}</span>
+</div>
+</body>
+</html>
