@@ -1,6 +1,6 @@
 'use strict';
 
-var sampleApp = angular.module('demo25',[]);
+var sampleApp = angular.module('demo24',[]);
 // Value Dependency Injection
 sampleApp.value("TutorialID", 5);
 sampleApp.controller('demo25Ctrl', function($scope,TutorialID) {

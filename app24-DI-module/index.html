@@ -9,18 +9,16 @@
 </head>
 
 <body>
-<div ng-app="demo24">
-    <h2>Value Dependency Injection</h2>
-    <div ng-controller="demo25Ctrl">
-        {{ID}}
+<!--智能社-->
+<div ng-app="mod3">
+    <div ng-controller="cont1">
+        {{a | myFilter}}
     </div>
-    <hr>
-    <!--service-->
-    <h2>Service Dependency Injection</h2>
-    <div ng-controller="serviceCtrl">
-        <p>Result: {{result}}</p>
+    <div ng-controller="cont2">
+        {{b | myFilter}}
     </div>
 </div>
+
 
 <script src="app.js"></script>
 
