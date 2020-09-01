@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        AngularJs ng-focus Event with Example
+    </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="app.js"></script>
+    <style type="text/css">
+        .demoFocus
+        {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+<div ng-app="ngfocusApp" ng-controller="ngfocusCtrl">
+    <h2>AngularJS ng-focus Event Example</h2>
+    Enter Text: <input type="text" ng-class="{ demoFocus: focus}" ng-focus="focusfn()" ng-blur="blurfn()" ng-model="ftxt">
+</div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        AngularJs ng-mousedown Event with Example
+    </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body ng-app="mouseApp">
+<div ng-controller="ngmousedownCtrl">
+    <h2>AngularJS ng-mousedown Event Example</h2>
+    <input type="button" ng-mousedown="getdetails()" value="Click Here"><br /><br />
+    <span style="color:Red">No. of Times MouseDown Event Fired: {{count}}</span>
+</div>
+<hr>
+<div ng-controller="ngmouseenterCtrl">
+    <h2>AngularJS ng-mouseenter Event Example</h2>
+    <input type="button" ng-mouseenter="getdetails()" value="Bring Mouse Cursor Here"><br /><br />
+    <span style="color:Red">No. of Times MouseEnter Event Fired: {{count}}</span>
+</div>
+<hr>
+<div ng-controller="ngmouseleaveCtrl">
+    <h2>AngularJS ng-mouseleave Event Example</h2>
+    <input type="button" ng-mouseleave="getdetails()" value="Move Away From Here"><br /><br />
+    <span style="color:Red">No. of Times MouseLeave Event Fired: {{count}}</span>
+</div>
+<hr>
+<div ng-controller="ngmousemoveCtrl">
+    <h2>AngularJS ng-mousemove Event Example</h2>
+    <div style="padding:10px; border:1px solid black; width:30%; cursor:pointer; font-weight:bold" ng-mousemove="getdetails()">Move Mouse Cursor Here...</div><br /><br />
+    <span style="color:Red">No. of Times MouseMove Event Fired: {{count}}</span>
+</div>
+<hr>
+<div ng-controller="ngmouseoverCtrl">
+    <h2>AngularJS ng-mouseover Event Example</h2>
+    <div style="padding:10px; border:1px solid black; width:30%; cursor:pointer; font-weight:bold" ng-mouseover="getdetails()">Hover Mouse Cursor Here...</div><br /><br />
+    <span style="color:Red">No. of Times MouseOver Event Fired: {{count}}</span>
+</div>
+<hr>
+<div ng-app="ngmouseupApp" ng-controller="ngmouseupCtrl">
+    <h2>AngularJS ng-mouseup Event Example</h2>
+    <input type="button" value="Hover and Click Me" ng-mouseup="getdetails()" /><br /><br />
+    <span style="color:Red">No. of Times MouseUp Event Fired: {{count}}</span>
+</div>
+</body>
+</html>

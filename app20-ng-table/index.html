@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>
+        AngularJs Table with ng-table module Example
+    </title>
+    <script src="../lib/angular-1.8.0/angular.min.js"></script>
+    <link rel="stylesheet" href="../node_modules/ng-table/bundles/ng-table.min.css">
+    <script src="../node_modules/ng-table/bundles/ng-table.min.js"></script>
+</head>
+<body ng-app="ngtableApp">
+<div ng-controller="ngtableCtrl">
+    <h2>AngularJS Table with ng-table Example</h2>
+    <table ng-table ="usersTable" class="table table-striped">
+        <tr ng-repeat="user in users">
+            <td data-title="'Name'">{{user.name}}</td>
+            <td data-title="'Age'">{{user.age}}</td>
+            <td data-title="'Location'">{{user.location}}</td>
+        </tr>
+    </table>
+</div>
+<script src="app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        AngularJs ng-keydown Event with Example
+    </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body ng-app="keyApp">
+<div ng-controller="ngkeydownCtrl">
+    <h2>AngularJS ng-keydown Event Example</h2>
+    Enter Text: <input type="text" ng-keydown="getkeys($event)" ng-model="ftxt"><br /><br />
+    <span style="color:Red">Last Key Code: {{keyval}}</span>
+</div>
+<hr>
+<div ng-controller="ngkeypressCtrl">
+    <h2>AngularJS ng-keypress Event Example</h2>
+    Enter Text: <input type="text" ng-keypress="getkeys($event)" ng-model="ftxt"><br /><br />
+    <span style="color:Red">Last Key Code: {{keyval}}</span>
+</div>
+<hr>
+<div ng-controller="ngkeyupCtrl">
+    <h2>AngularJS ng-keyup Event Example</h2>
+    Enter Text: <input type="text" ng-keyup="getkeys($event)" ng-model="ftxt"><br /><br />
+    <span style="color:Red">Last Key Code: {{keyval}}</span>
+</div>
+
+
+</body>
+</html>

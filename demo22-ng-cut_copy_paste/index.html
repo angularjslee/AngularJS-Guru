@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        AngularJs ng-cut, ng-copy and ng-paste Events with Example
+    </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body>
+
+<div ng-app="ngcopyApp" ng-controller="ngcopyCtrl">
+    <h2>AngularJS ng-copy, paste, cut Events Example</h2>
+    Copy the Text: <input type="text" ng-copy="copytext=true" value="Hi, Welcome to Tutlane" /> <br />
+    <span>Text Copied:<b>{{copytext}}</b></span><br />
+    Cut the Text: <input type="text" ng-cut="cuttext=true" value="Hi, Welcome to Tutlane" /> <br />
+    <span>Text Cut:<b>{{cuttext}}</b></span><br />
+    Paste the Text: <input type="text" ng-paste="pasttext=true" /> <br />
+    <span>Text Pasted:<b>{{pasttext}}</b></span>
+</div>
+</body>
+</html>
