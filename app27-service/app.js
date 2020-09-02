@@ -28,7 +28,7 @@ app.controller('intervalCtrl', function($scope, $interval) {
 //customer service
 app.service('hexafy', function() {
     this.myFunc = function (x) {
-        return x.toString(16);
+        return x.toString(16);  //  参数代表进制数
     }
 });
 app.controller('hexafyCtrl', function($scope, hexafy) {

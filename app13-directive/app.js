@@ -44,7 +44,6 @@ app.directive('classdirective', function () {
   return json;
 });
 
-//没显示
 app.directive('commentdirective', function () {
   var json = {
     restrict: 'M',

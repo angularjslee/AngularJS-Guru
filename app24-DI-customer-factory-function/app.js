@@ -15,4 +15,3 @@ app.controller('cont1', function ($scope, sum) {
     alert(sum(1,2));
 });
 
-//方法二

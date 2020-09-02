@@ -22,9 +22,9 @@ app.controller("myCtrl", [function () {
 app.directive("myDir", [function () {
     return {
         scope: {
-            attr1: "=",
-            attr2: "@",
-            attr3: "&"
+            attr1: "=",     //  双向绑定
+            attr2: "@",     //  单向绑定
+            attr3: "&"      //  事件绑定
         },
         link: function (scope) {
             console.log(scope.attr1);   // =, logs "Hey there, Juan"

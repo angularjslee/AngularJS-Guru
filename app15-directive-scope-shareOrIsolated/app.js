@@ -8,7 +8,7 @@ app.controller("myController", function ($scope) {
     $scope.name = "hello world";
 }).directive("shareDirective", function () {
     return {
-        template: 'Say:{{name}}'
+        template: 'This is sharing scope-----Say:{{name}}'
     }
 });
 app.controller("yourController", function ($scope) {
@@ -16,6 +16,6 @@ app.controller("yourController", function ($scope) {
 }).directive("isolatedDirective", function () {
     return {
         scope: {},
-        template: 'Say:{{name}}'
+        template: 'This is isolated scope-----Say:{{name}}'
     }
 });

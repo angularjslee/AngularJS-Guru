@@ -14,7 +14,16 @@ sampleApp.config(function ($routeProvider) {                            // This 
     }).
     when("/Node", {
         templateUrl: 'Node.html',
-        controller: 'NodeController'
+        controller: 'NodeController',
+        resolve: {
+            delay: function ($q) {
+                var delay = $q.defer();
+                setTimeout(function () {
+                    delay.resolve();        // resolve 执行， 然后才开始后续操作
+                }, 2000);
+                return delay.promise;
+            }
+        }
     }).
     when("/user", {
         template: '<h2>User Center</h2>'

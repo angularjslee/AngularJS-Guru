@@ -16,6 +16,9 @@ sampleApp.config(function ($routeProvider) {                            // This 
         templateUrl: 'Node.html',
         controller: 'NodeController'
     }).
+    when("/temp", {
+        templateUrl: 'temp.html'
+    }).
     when("/user", {
         template: '<h2>User Center</h2>'
     }).

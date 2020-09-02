@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf 8">
+    <title>Guru99</title>
+    <script src="../lib/angular-1.8.0/angular.min.js"></script>
+</head>
+<body ng-app="demo27">
+<div ng-controller="EventController">
+    Root scope <tt>MyEvent</tt> count: {{count}}
+    <ul>
+        <li ng-repeat="i in [1]" ng-controller="EventController">
+            <!--emit 向上发送：自己+父级-->
+            <button ng-click="$emit('MyEvent')">$emit('MyEvent')</button>
+            <!--broadcast 向下发送：自己+子级-->
+            <button ng-click="$broadcast('MyEvent')">$broadcast('MyEvent')</button>
+            <br>
+            Middle scope <tt>MyEvent</tt> count: {{count}}
+            <ul>
+                <li ng-repeat="item in [1, 2]" ng-controller="EventController">
+                    Leaf scope <tt>MyEvent</tt> count: {{count}}
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

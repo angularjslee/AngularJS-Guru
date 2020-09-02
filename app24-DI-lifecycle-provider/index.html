@@ -8,18 +8,13 @@
     <script src="../lib/jquery-3.5.1.min.js"></script>
 </head>
 
-<body>
-<div ng-app="dem015">
-    <pane title="{{title}}">Angular JS</pane>
-    <div ng-controller="myCtrl as VM">
-        <a my-dir
-           attr1="VM.sayHi('attr1')"
-           attr2="VM.sayHi('attr2')"
-           attr3="VM.sayHi('attr3')"
-        ></a>
+<body ng-app="demo24">
+<div ng-controller="cont1">
+    <div ng-controller="cont2">
+        <div ng-controller="cont3"></div>
     </div>
 </div>
-
 <script src="app.js"></script>
+
 </body>
 </html>
