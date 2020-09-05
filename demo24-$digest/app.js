@@ -11,6 +11,7 @@ app.controller('digestCtrl', function ($scope) {
 //get dateTime
         $scope.currentDateTime = new Date();
 //The digest method is use to update date time forcefully.
+//        手动调用$digest() 循环
         $scope.$digest();
     });
 });

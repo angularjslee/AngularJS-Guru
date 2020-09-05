@@ -1,0 +1,33 @@
+<!doctype html>
+<html ng-app="watchModule">
+<head>
+    <meta charset="UTF-8">
+    <title>ch05_08</title>
+    <script type="text/javascript" src="../angular-1.5.5/angular.js">
+    </script>
+</head>
+<body>
+<div ng-repeat='item in items'>
+    <input ng-model='item.value'/>&nbsp;<span>{{item.value}}</span><br/><br/>
+</div>
+<div>change count: {{count}}</div>
+<script>
+    angular.module('watchModule', [])
+            .run(['$rootScope', function ($rootScope) {
+                $rootScope.count = 0;
+                $rootScope.items = [
+                    {"value": 1},
+                    {"value": 2},
+                    {"value": 3},
+                    {"value": 4}
+                ];
+//                $watchCollection(obj, listener);
+//                $watchCollection 针对数组集合进行监控，性能介于reference  和 equal 之间，不对数组中每一项属性进行监视，但对数组的
+//                项目增减做出反应
+                $rootScope.$watchCollection('items', function () {
+                    $rootScope.count++;
+                })
+            }]);
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8"> 
+    <title>ch05_04</title>
+</head>
+<body>
+    <!--对象可以继承另外一个对象的属性-->
+    <script type="text/javascript">
+        function Person(name,age){
+            this.name = name;
+            this.age = age;
+        }
+        
+        var person = new Person('jane',28);
+        var student = Object.create(person);    // 以一个对象为原型创建两一个对象, 新建的对象和原对象有相同的属性
+        student.love = "pingpong";
+        console.log(Object.getPrototypeOf(student));    // 通过getPrototypeOf 获取新对象的原型
+        console.log("student.name=>"+student.name);
+        console.log("student.age=>"+student.age);
+        console.log("student.love=>"+student.love);
+        
+    </script>
+</body>
+</html>

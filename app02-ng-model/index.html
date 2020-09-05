@@ -6,10 +6,27 @@
 </head>
 
 <body>
+<p>AngularJS Binding</p>
 <div ng-app="demo02" ng-controller="DemoController">
     Tutorial Name : <input type="text" ng-model="tutorialName"><br>
     This tutorial is {{tutorialName}}
 </div>
+<hr>
+<!--用 Javascript 原生代码模拟绑定-->
+<p>JS Prototype Code Binding</p>
+<div>
+    Username: <input type="text" name="uname" id="uname" />
+</div>
+<div>
+    <span id="info"></span>
+</div>
+<script type="text/javascript">
+    var uname = document.getElementById("uname");
+    var info = document.getElementById("info");
+    uname.onkeyup = function(){
+        info.innerHTML = uname.value;
+    }
+</script>
 
 <script src="../lib/angular-1.8.0/angular.js"></script>
 <script src="../lib/bootstrap-4.3.1-dist/js/bootstrap.js"></script>

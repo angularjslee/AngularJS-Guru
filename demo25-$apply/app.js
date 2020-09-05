@@ -9,6 +9,7 @@ app.controller('applyCtrl', function ($scope) {
     var event = document.getElementById("btnapply");
     event.addEventListener('click', function () {
 //The $apply method is use to update date time on rootScope forcefully.
+//        $apply 会 调用 $rootScope.$digest() 循环，检查 $scope 的属性变化
         $scope.$apply(function () {
 //get dateTime
             $scope.currentDateTime = new Date();

@@ -1,0 +1,51 @@
+<!doctype html>
+<html ng-app="watchModule">
+<head>
+    <meta charset="UTF-8">
+    <title>ch05_06</title>
+    <script type="text/javascript" src="../angular-1.5.5/angular.js">
+    </script>
+</head>
+<body>
+<div ng-repeat='item in items'>
+    <input ng-model='item.value'/>&nbsp;<span>{{item.value}}</span><br/><br/>
+</div>
+<div>change count: {{count}}</div>
+<script>
+    angular.module('watchModule', [])
+            .run(['$rootScope', function ($rootScope) {
+                $rootScope.count = 0;
+                $rootScope.items = [
+                    {"value": 1},
+                    {"value": 2},
+                    {"value": 3},
+                    {"value": 4}
+                ];
+//                $rootScope.newItems = [
+//                    {"value": 5},
+//                    {"value": 6},
+//                    {"value": 7},
+//                    {"value": 8}
+//                ];
+
+                $rootScope.$watch('items', function () {
+//                    $rootScope.items = $rootScope.newItems;     // 给items 新赋值， 视为变化 ，count 变为2
+                    $rootScope.count++;
+                });
+                /*
+
+                 $watch 不起作用的原因：
+                 JS 中有 6种数据类型
+                 基本类型：数字，字符串，布尔值,undefined, null, symbol
+                 引用类型：数组，对象，Date, RegExp, Function
+                 $watch(watchExpression, listener, [objectEquality]);
+                 第三个参数默认false,即 reference watch, 引用监视，意思是 监视对象的引用不变化，不视为变化。
+                 若引用改变，比如 讲一个新数组 newItems 赋值给 items, watch 才视为改变。
+                 相反，若是 true, 即 equality watch , 全等监视，只要属性改变，就视作改变
+                 但全等监视也有弊端，运行时需要先遍历这个监视对象，然后在每次$digest之前使用 angular.copy() 将整个对象深复制一遍，然后
+                 在运行之后用 angular.equal() 将前后的对象进行对比。若大数据，便会消耗大量资源。
+                 */
+            }]);
+</script>
+</body>
+</html>

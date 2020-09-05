@@ -7,11 +7,19 @@
 
 <body ng-app="demo01">
 <h1 ng-controller="HelloWorldCtrl">
-    {{message}}
+    <div>"{{}} = " + {{message}}</div>
+    <div ng-bind="message"></div>
+    <div class="ng-bind: message"></div>
 </h1>
+
+
 
 <!--<script src="https://code.angularjs.org/1.6.9/angular.js"></script>-->
 <script src="../lib/angular-1.8.0/angular.js"></script>
+<script type="text/javascript">
+//    用alert 模拟延时加载， 查看{{}} 和 ng-binding 的区别
+    alert("pause");
+</script>
 <script src="app.js"></script>
 </body>
 </html>
