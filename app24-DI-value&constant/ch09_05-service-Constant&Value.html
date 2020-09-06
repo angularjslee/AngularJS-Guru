@@ -1,0 +1,24 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8"> 
+    <title>ch09_05</title>
+    <script src="../lib/angular-1.8.0/angular.js"></script>
+</head>
+<body>
+<div ng-controller="MainController">
+</div>
+<script>
+    var app = angular.module('app',[]);
+//    constant 和 Value 用于保存应用程序的相关信息
+//    有点类似于面向过程语言中的全局变量的概念
+    app.constant("version","1.0.0");
+    app.value("CONFIG","app.properties");
+    
+    app.controller("MainController",function(version,CONFIG){
+        console.log("app version=>" + version);
+        console.log("config file=>" + CONFIG);
+    });
+</script>
+</body>
+</html>

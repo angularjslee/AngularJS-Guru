@@ -1,0 +1,33 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8"> 
+    <title>ch09_03</title>
+    <script src="../lib/angular-1.8.0/angular.js"></script>
+</head>
+<body>
+<div ng-controller="MainController">
+
+</div>
+<script>
+    var app = angular.module('app',[]);
+    /*
+    通过查看源码，service() 调用了 factory()
+    在 factory() 中 通过$injector 的 instantiate()实例化Service 对象。
+    */
+
+//    使用模块实例factory() 方法创建自定义的Factory 对象
+//    和 service 不同，他的第二个参数bushi  Factory 对象的构造方法，而是一个普通方法，该方法必须返回一个对象实例
+    app.factory("myFactory",function(){
+        return{
+            sayHello:function(){
+                alert("welcome to you!");
+            }
+        }
+    });
+    app.controller("MainController",function(myFactory){
+        myFactory.sayHello();
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8"> 
+    <title>ch09_04</title>
+    <script src="../lib/angular-1.8.0/angular.js"></script>
+</head>
+<body>
+<div ng-controller="MainController">
+
+</div>
+<script>
+    var app = angular.module('app',[]);
+    /*
+    provier 是一种比较灵活的可注入类型，在使用事前可以调用config（）对provider 进行配置
+    例如，$route服务可以通过 $routeProvider 对 URL 模式（html5Mode 和 hashbang） 进行配置
+    */
+//    第二个参数为 provider 对象的构造方法
+    app.provider("custom", function(){
+//        第一部分：普通的成员属性和方法
+//        可以再模块实例的 config() 方法中访问
+        this.name = "Smith";
+        this.getName = function(){
+            return name;   
+        };
+//        第二部分的变量或方法由 $get()成员方法返回，而且 Provider对象构造方法 必须有一个 $get() 成员方法，否则会抛出异常
+        this.$get = function(){
+            var name = this.name;
+            return  function(){
+                alert("Hello " + name);
+            }
+        }
+    });
+    app.config(function(customProvider){
+//        注意命名： custom + Provider
+        customProvider.name = "Jane";
+    });
+    //   $get()的返回内容可以在注入 该Provider对象的控制器或其他组件中访问
+    app.controller("MainController",function(custom){
+        custom();
+    });
+</script>
+</body>
+</html>

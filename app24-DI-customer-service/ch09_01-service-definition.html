@@ -1,0 +1,48 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8"> 
+    <title>ch09_01</title>
+    <script src="../lib/angular-1.8.0/angular.js"></script>
+</head>
+<body>
+<div ng-controller="MainController">
+
+</div>
+<!--
+Service 对象，诸如 $location, $timeout, $interval, 他们都是内置 service
+但是内置的并不能总是满足需求，所以需要定制
+定制有三种方法： Service， Factory, Provider. 他们都是 AngularJS 中的可注入类型，
+意味着我们可以通过依赖注入机制将他们注入控制器或其他方法中（例如控制器构造方法）
+另外还有两种类型： Value 和 Constant，并且延迟加载（需要时才会被创建）
+
+
+AngularJS的service是封装了一些特定业务逻辑的单例对象。
+既然是单例对象，意味着它在每个应用中只会被实例化一次（由$injector 实例化）
+
+
+-->
+
+<script>
+    var app = angular.module('app',[]);
+    /*
+    AngularJS 提供了一个 service 方法，用于注册一个自定义service
+    第一个参数， service 名
+    第二个参数，service 对象的构造方法
+    */
+    app.service('myService',function(){
+        this.sayHello=function(){ 
+            alert('This is my service!');
+        }
+    });
+    /*
+    在 MainController 定义时，声明它依赖于 myService。
+    当AngularJS 解析依赖时，会使用 myService 对应的构造方法实例化该Service 对象
+    Service 对象只实例化一次，后面注入的Service 对象是第一次调用后的缓存版本
+    */
+    app.controller("MainController",function($scope,myService){
+        myService.sayHello();
+    });
+</script>
+</body>
+</html>
