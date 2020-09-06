@@ -1,0 +1,39 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8"> 
+    <title>ch10_03</title>
+    <script src="../../lib/angular-1.8.0/angular.js"></script>
+    <style>
+        ul {padding-left: 0px;}
+        li {list-style-type: none;}
+    </style>
+</head>
+<body>
+<div ng-controller="MainController">
+    人员信息：<input type="text" ng-model="personInfo" />
+    <ul>
+        <!--
+        filter 用来处理一个数组。过滤出含有某个含有子串的元素，将过滤后的元素作为一个子数组返回
+        既可以是字符串数组，也可以是一个对象数组
+        另外，可以接受一个参数，用来定义子元素的匹配规则
+        -->
+        <!--添加在指令上的filter-->
+        <li ng-repeat="person in persons|filter:personInfo">
+            姓名:{{person.name}},年龄：{{person.age}},性别：{{person.sex}}
+        </li>
+    </ul>
+</div>
+<script>
+    var app = angular.module("app", []);
+    app.controller("MainController", function($scope) {
+        $scope.persons = [
+            {name:"Smith",age:23,sex:"男"},
+            {name:"Jack",age:30,sex:"男"},
+            {name:"Jane",age:25,sex:"女"},
+            {name:"LiLei",age:20,sex:"男"}
+        ];
+    });  
+</script>
+</body>
+</html>

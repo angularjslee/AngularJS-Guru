@@ -1,0 +1,27 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8"> 
+    <title>ch10_01</title>
+    <script src="../../lib/angular-1.8.0/angular.js"></script>
+</head>
+<body>
+<div ng-controller="MainController">
+    {{amount}}
+</div>
+<script>
+    /*
+    1. 在表达式中使用过滤器
+     {{expression | filter1: argument1:argument2 | filter2:argument1}}
+     2. 在指令中使用过滤器
+    <span ng-repeat="element in array" | filter></span>
+*/
+
+    var app = angular.module('app',[]);
+//    3. 在 controller 中使用过滤器
+    app.controller("MainController",function($scope,currencyFilter){
+        $scope.amount = currencyFilter(1000123);
+    });
+</script>
+</body>
+</html>

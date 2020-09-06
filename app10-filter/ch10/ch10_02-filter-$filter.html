@@ -1,0 +1,22 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8"> 
+    <title>ch10_02</title>
+    <script src="../../lib/angular-1.8.0/angular.js"></script>
+</head>
+<body>
+<div ng-controller="MainController">
+    {{amount}}<br/>
+    {{date}}
+</div>
+<script>
+    var app = angular.module('app',[]);
+    app.controller("MainController",function($scope,$filter){
+//        $filter 可以调用所有的filter,因此只需要注入一个$filter 就可以了。
+        $scope.amount = $filter('currency')(1000123);
+        $scope.date = $filter('date')(new Date(),'yyyy-MM-dd hh:mm:ss');
+    });
+</script>
+</body>
+</html>
