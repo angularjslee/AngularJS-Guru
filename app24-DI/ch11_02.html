@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8"> 
+    <title>ch11_02</title>
+</head>
+<body>
+<script>
+    function AppLog() {
+        this.startInfo = function(){
+            console.info("=========应用开始启动=========");
+            console.error("=========应用启动错误=========");
+            console.info("=========应用关闭，请检查错误=========");
+        }
+    }
+//    定义一个全局 AppLog 对象，然后在App 构造方法中从全局的作用域中查找并使用AppLog 对象。
+//    这种方式比较不好的一点就是容易造成全局作用域污染，其他方法对 AppLog 对象的修改会影响到所有依赖Applog对象的地方
+    var appLog = new AppLog();
+    function App(){
+        this.start = function(){
+             appLog.startInfo();
+        }
+    }
+    var app =new App();
+    app.start();
+</script>
+</body>
+</html>

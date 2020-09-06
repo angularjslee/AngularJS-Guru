@@ -1,0 +1,43 @@
+<!doctype html>
+<html ng-app="appMod">
+<head>
+    <meta charset="UTF-8"> 
+    <title>ch11_08</title>
+    <script src="../lib/angular-1.8.0/angular.js"></script>
+</head>
+<body ng-controller="MainController">
+<script>
+
+//    $inject 实际是一个 IoC 容器，当创建一个新的 可注入类型，例如 Service, Factory， 这些可注入类型会注册到 IoC 容器中
+//    AngularJS 通过$injector 服务对这些可注入类型进行集中管理，意味着 $injector 可以获取所有的可注入类型
+    var appMod = angular.module("appMod",[]);
+    appMod.service("helloService",function($http){
+        this.sayHello = function(){
+            alert("Hello,Welcome to you!"); 
+        }
+    });
+    /*
+//    get（）huoqu  可注入对象
+    appMod.controller("MainController",function($injector){
+        var helloService = $injector.get("helloService");
+        helloService.sayHello();
+    });
+    */
+    /*
+//    提供全局injector 方法来获取$injector 服务
+    appMod.controller("MainController",function(){
+        var $injector =  angular.injector(['ng','appMod']);
+        var helloService = $injector.get("helloService");
+        helloService.sayHello();
+    });
+    */
+//    如果知道摸个方法依赖于那些服务，可用annotate 来获取
+    appMod.controller("MainController",function($injector){
+        var depends = $injector.annotate(function($http,$scope){});
+        console.log(depends);
+    });
+//    控制台输出
+//["$http", "$scope"]
+</script>
+</body>
+</html>

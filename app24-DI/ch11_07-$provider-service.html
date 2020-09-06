@@ -1,0 +1,33 @@
+<!doctype html>
+<html ng-app="appMod">
+<head>
+    <meta charset="UTF-8"> 
+    <title>ch11_07</title>
+    <script src="../lib/angular-1.8.0/angular.js"></script>
+</head>
+<body ng-controller="MainController">
+<script>
+    var appMod = angular.module("appMod",[]);
+    appMod.config(function($provide){
+//        调用 $provider 服务的 service() 方法创建
+        $provide.service("helloService",function(){
+            this.sayHello = function() {
+                alert("Hello,Welcome to you!"); 
+            }
+        });
+    });
+    /*
+//    等价于
+//    调用模块实例的service（）方法
+    appMod.service("helloService",function(){
+        this.sayHello = function(){
+            alert("Hello,Welcome to you!"); 
+        }
+    });
+    */
+    appMod.controller("MainController",function(helloService){
+        helloService.sayHello();
+    });
+</script>
+</body>
+</html>

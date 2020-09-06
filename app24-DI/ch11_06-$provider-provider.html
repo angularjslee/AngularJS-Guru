@@ -1,0 +1,27 @@
+<!doctype html>
+<html ng-app="appMod">
+<head>
+    <meta charset="UTF-8"> 
+    <title>ch11_06</title>
+    <script src="../lib/angular-1.8.0/angular.js"></script>
+</head>
+<body ng-controller="MainController">
+<script>
+//    使用 $provider 服务创建集中可注入类型
+    var appMod = angular.module("appMod",[]);
+    appMod.config(function($provide){
+//        $provider 服务提供 provider()方法 供我们注册一个新的 Provider 对象
+        $provide.provider("sayHello",function(){
+            this.$get = function(){
+                return function(){
+                    alert("Hello,Welcome to you!");
+                }
+            }
+        });
+    });
+    appMod.controller("MainController",function(sayHello){
+        sayHello();
+    });
+</script>
+</body>
+</html>

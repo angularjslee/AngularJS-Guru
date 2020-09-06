@@ -1,0 +1,66 @@
+<!doctype html>
+<html ng-app="appMod">
+<head>
+    <meta charset="UTF-8">
+    <title>ch11_03</title>
+    <script src="../lib/angular-1.8.0/angular.js"></script>
+</head>
+<body ng-controller="MainController">
+
+<!--
+与依赖注入相对应的一个概念：控制反转 IoC(Inversion of Control)
+控制反转是一种软件设计思想，而依赖注入是实现控制反转最直接也最简单的一种方式.
+当然控制反转不一定非要用依赖注入的方式实现-->
+<!--
+如何向一个 5岁的小朋友解释 依赖注入：
+当你从冰箱里拿自己想要的东西，你可能会遇到麻烦，可能忘了关冰箱门，或者拿了父母不想让你拿的东西，甚至你可能在寻找我们根本没有的东西。
+所以，你需要做的只是静静地坐在那里，告诉我们你想喝什么或者吃什么，我们会把你需要的东西送到你面前。
+-->
+
+<!--所谓依赖注入，就是当你在一个组建中需要依赖其他组件时，不需要你自己创建这些组件，而是通过依赖注入直接把组件提供给你-->
+
+<!--
+获取依赖，有三种方式：
+创建依赖
+全局查找依赖
+依赖注入
+-->
+<script>
+    var appMod = angular.module("appMod",[]);
+    function AppLog() {
+        this.startInfo = function(){
+            console.info("=========应用开始启动=========");
+            console.error("=========应用启动错误=========");
+            console.info("=========应用关闭，请检查错误=========");
+        }
+    }
+//    App构造方需要依赖一个 AppLog的对象来是想应用启动日志的输出
+//    与之前不同，我们一参数的形式 “送”一个 AppLog对象到 App构造方法中，
+//    细心发现，我们连AppLog 对象在哪里创建都不知道
+    function App(appLog){
+        this.start = function(){
+             appLog.startInfo();
+        }
+    }
+    //调入service方法，创建一个可注入的AppLog对象。
+//    调用以下两行，就建立了依赖关系
+    appMod.service("appLog",AppLog);
+    appMod.service("app",App);
+    /*
+    当实例化 MainController 控制器时，发现控制器依赖一个 App 对象，
+    所以首先去实例化一个 App对象，
+    接着发现 App 一俩一个 AppLog对象，进而先去实例化 AppLog 对象，
+    接着 将 AppLog对象注入App对象中，
+    这样就完成了依赖注入
+*/
+    appMod.controller("MainController",function(app){
+        app.start();
+    });
+    /*
+    前两种方式都不好，因为需要对依赖进行硬编码，使得修改依赖的时候变得困难。
+    特别是测试的时候，对摸个部分进行鼓励的测试常常需要模拟它的依赖。
+    第三种最好，不必主动查找和获取依赖，而是由外界将依赖注入
+    */
+</script>
+</body>
+</html>

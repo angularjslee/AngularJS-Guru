@@ -1,0 +1,45 @@
+<!doctype html>
+<html ng-app="appMod" ng-strict-di>
+<!--
+用ng-strict-di 切换到严格的依赖注入模式，浏览器控制台报错
+Error: [$injector:strictdi] MainController is not using explicit annotation and cannot be invoked in strict mode
+意思是严格模式下，需要显式的声明依赖
+-->
+<head>
+    <meta charset="UTF-8"> 
+    <title>ch11_05</title>
+    <script src="../lib/angular-1.8.0/angular.js"></script>
+</head>
+<body ng-controller="MainController">
+    {{name}}
+<script>
+    /*
+     AngularJS 提供了三种注入方式
+     1. 通过数组标注在方法的参数中声明依赖
+     var appMod = angular.module("appMod",[]);
+     appMod.controller("MainController", ['$scope', '$http', function ($scope, $http) {
+
+     }]);
+     需要注意的是参数列表与前面的数组元素需要一一对应
+     2. 使用控制器构造方法的$inject 属性注入依赖
+     var appMod = angular.module("appMod",[]);
+     var MainController = function ($scope, $http) {
+     $scope.name = "Smoth"
+     };
+     MainController.$inject = ['$scope', '$http'];
+     appMod.controller("MainController", MainController);
+     3. 隐式声明依赖
+     var appMod = angular.module("appMod",[]);
+     appMod.controller("MainController", function ($scope, $http) {
+     $scope.name = "smith"
+     });
+     */
+
+    //    以下是严格依赖注入模式使用隐式声明依赖的情景
+    var appMod = angular.module("appMod",[]);
+    appMod.controller("MainController",function($scope,$http){
+        $scope.name = "Smith";
+    });
+</script>
+</body>
+</html>
