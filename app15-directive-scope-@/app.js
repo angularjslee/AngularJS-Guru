@@ -10,7 +10,8 @@ app.controller("myController", function ($scope) {
         scope: {
             name: "@"
         },
-        template: 'Say：{{name}} <br>改变隔离scope的name：<input type="buttom" value="" ng-model="name" class="ng-pristine ng-valid">'
+        template: 'Say：{{name}} <br>改变隔离scope的name：' +
+        '<input type="buttom" value="" ng-model="name" class="ng-pristine ng-valid">'
     }
 });
 

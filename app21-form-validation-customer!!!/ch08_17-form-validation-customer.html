@@ -1,0 +1,58 @@
+<!doctype html>
+<html ng-app="directiveModule">
+<head>
+    <meta charset="UTF-8"> 
+    <title>ch08_17</title>
+    <script src="../lib/angular-1.5.5/angular.js"></script>
+    <script src="../lib/angular-1.5.5/angular-messages.js"></script>
+</head>
+<body>
+<div style="margin-top:20px;">
+<form name="form1">
+    <label>请输入密码：</label>
+    <input name="strongSecret" type="text" ng-model="strongSecret" strong-secret required><br/><br/>
+    <div style="color:red;" ng-messages="form1.strongSecret.$error">
+        <div ng-message="numberValidator">密码中至少包含一个数字！</div>
+        <div ng-message="uppercaseValidator">密码中至少包含一个大写字母！</div>
+        <div ng-message="sixCharactersValidator">密码长度至少为12！</div>
+    </div>
+</form>
+</div>
+
+<script>
+var app = angular.module('directiveModule', ['ngMessages']);
+app.directive('strongSecret', function () {
+    return {
+        restrict: 'A',
+        require: 'ngModel',
+//        require属性值为 ngModel, 可以在 strongSecret指令定义对象的link方法中 访问ngModel指令controller 对象
+        link: function (scope, element, attr, ctrl) {
+            function customValidator(ngModelValue) {
+                if (/[A-Z]/.test(ngModelValue)) {
+                    ctrl.$setValidity('uppercaseValidator', true);
+//                    $setValidity 用于在 $error 对象添加一个和校验相关的模型数组，
+//                    第一个参数为模型名称，
+//                    第二个参数为布尔值，标识校验是否通过
+                } else {
+                    ctrl.$setValidity('uppercaseValidator', false);
+                }
+                if (/[0-9]/.test(ngModelValue)) {
+                    ctrl.$setValidity('numberValidator', true);
+                } else {
+                    ctrl.$setValidity('numberValidator', false);
+                }
+                if (ngModelValue.length > 12) {
+                    ctrl.$setValidity('sixCharactersValidator', true);
+                } else {
+                    ctrl.$setValidity('sixCharactersValidator', false);
+                }
+                return ngModelValue;
+            }
+            ctrl.$parsers.push(customValidator);
+//            ctrl.$parsers 是一个存放方法的数组，调用数组对象的push 方法将 customerValidator 方法添加到数组中
+        }
+    };
+});
+</script>       
+</body>
+</html>

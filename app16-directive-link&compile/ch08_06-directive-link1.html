@@ -1,0 +1,27 @@
+<!doctype html>
+<html ng-app="directiveModule">
+<head>
+    <meta charset="UTF-8"> 
+    <title>ch08_06</title>
+    <script src="../lib/angular-1.8.0/angular.js"></script>
+</head>
+<body>
+<say-hello name="Smith"></say-hello>
+<script>
+    var app = angular.module("directiveModule",[]);
+    app.directive("sayHello",function(){
+        return {
+            restrict:'AEC',
+            replace:true,
+            template:'<h1>Hello,{{name}}!</h1>',
+            link:function(scope, elem, attrs){
+                scope.name = attrs.name;
+            }
+//            scope: 默认情况下和父级作用域相同
+//            elem： 表示当前指令的 HTML 元素。他是经过JQLite（JQeury的子集）包装后的div元素
+//            attrs: 表示一个对象，包含指令的所有属性及属性值。
+        }
+    });
+</script>
+</body>
+</html>

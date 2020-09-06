@@ -1,0 +1,69 @@
+<!doctype html>
+<html ng-app="directiveModule">
+<head>
+    <meta charset="UTF-8"> 
+    <title>ch08_08</title>
+    <script src="../lib/angular-1.8.0/angular.js"></script>
+</head>
+<body>
+<div repeat="5">
+    <div><h3>hello world!</h3></div>
+</div>
+<script>
+    var app = angular.module("directiveModule",[]);
+    app.directive("repeat",function(){
+        return {
+            restrict:'A',
+            replace:true,
+//            link 方法即可满足大部分场景，compile 方法应用较少，只需了解
+            compile: function(tElem, tAttrs){
+//                console.log(tElem);       // JQLite 包装多的元素
+//                console.log(tAttrs);
+                console.log("compile...=>" +  tElem.html());
+                var temp = tElem.html();
+                for(var i=0;i<tAttrs.repeat-1;i++) {
+                    tElem.append(temp);
+                }
+                console.log("post compile...");
+            }
+            /*
+            AngularJS 处理指令的过程
+            浏览器开始渲染HTML
+            首先加载HTML元素，创建文档对象模型 DOM，加载完成后触发onload事件
+            通过 <script> 将 AngularJS 引入 HTML, AngularJS 监听 onload事件
+            通过 DOM 查找 ng-app ，若找到，从 ng-app HTML 标签开始，用$compile 服务遍历DOM 元素。
+            AngularJS 从 DOM 中 识别哪些属于指令元素，根据定义的对象决定如何处理这些指令
+            一旦所有指令被识别，执行指令定义对象的compile 方法
+
+            所有指令的compile 方法只会在 AngularJS 框架启动时调用一次。
+
+            link() 和 compile() 有冲突，若指定了 compile() 就不能再指定 link()
+            但 link() 可以由compile() 作为返回值返回。
+            当一个指令需要被克隆很多次，可以用ng-repeat
+            <tr ng-repeat="raw in raws">
+                <my-raw></my-raw>
+            </tr>
+            link()神队每个被复制的实例执行，如果分开处理，性能会提高
+
+            compile() 主要作用是在link()方法执行之前对DOM 元素进行修改
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            */
+        }
+    });
+</script>
+</body>
+</html>

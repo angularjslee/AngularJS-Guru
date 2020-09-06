@@ -1,0 +1,33 @@
+<!doctype html>
+<html ng-app="directiveModule">
+<head>
+    <meta charset="UTF-8"> 
+    <title>ch08_14</title>
+    <script src="../lib/angular-1.8.0/angular.js"></script>
+</head>
+<body>
+<div ng-controller="MainController">
+    用户名：<input type="text" ng-model="name"/>
+    <p say-hello>
+        {{name}}
+    <p/>
+</div>
+<script>
+    var app = angular.module("directiveModule",[]);
+    app.controller("MainController",function($scope){
+        $scope.name = "Smith";
+    });
+    app.directive("sayHello",function(){
+        return {
+            restrict:'AE',
+            replace: true,
+            transclude: 'element',
+            template:"<h1>Hi <span ng-transclude></span>,Welcome to you!</h1>"
+//            等价于
+//            template:"<h1>Hi <p say-hello="" class="ng-binding ng-scope">Smith</p>,Welcome to you!</h1>"
+
+        }
+    });
+</script>
+</body>
+</html>

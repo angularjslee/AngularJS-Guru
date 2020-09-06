@@ -1,0 +1,47 @@
+<!doctype html>
+<html ng-app="directiveModule">
+<head>
+    <meta charset="UTF-8"> 
+    <title>ch08_09</title>
+    <script src="../lib/angular-1.8.0/angular.js"></script>
+</head>
+<body>
+<div ng-controller="MainController">
+    用户名：<input type="text" ng-model="name"/>
+    <say-hello></say-hello>
+<!--
+    如果不做处理，say-hello 指令的作用域和MainController 控制器实例化时创建的作用域对象是同一个对象
+    但这并不总是我们想要的，因为修改某个指令的作用域数据会对其他指令有影响。
+    而且，某些情况仅对指令内容使用。
+    因为，需要摆脱父级作用域
+    1. 使用子作用域 从 父作用域 原型继承
+    2. 使用孤立作用域，即创将一个新的作用域对象，和父作用域没有任何关系
+       scope: true
+       表示为指令创建了一个新的作用域对象，该作用域对象从父作用域 原型继承。
+       若想拥有父作用域中的所有模型数据，用此方式
+
+        app.directive("helloWorld",function(){
+        return {
+            restrict:'E',
+            scope:true,
+            template:"<h3>hello,{{name}}</h3>"
+        }
+        });
+-->
+
+</div>
+<script>
+    var app = angular.module("directiveModule",[]);
+    app.controller("MainController",function($scope){
+        $scope.name = "Smith";
+    });
+    app.directive("sayHello",function(){
+        return {
+            restrict:'E',
+            scope:{},
+            template:"<h3>hello,{{name}}</h3>"
+        }
+    });
+</script>
+</body>
+</html>

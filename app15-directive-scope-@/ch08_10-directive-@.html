@@ -1,0 +1,34 @@
+<!doctype html>
+<html ng-app="directiveModule">
+<head>
+    <meta charset="UTF-8"> 
+    <title>ch08_10</title>
+    <script src="../lib/angular-1.8.0/angular.js"></script>
+</head>
+<body>
+<div ng-controller="MainController">
+    用户名：<input type="text" ng-model="name"/>
+    <say-hello name-attr="{{name}}"></say-hello>
+    <!--所谓基于属性绑定，是以属性的方式添加-->
+</div>
+<script>
+    var app = angular.module("directiveModule",[]);
+    app.controller("MainController",function($scope){
+        $scope.name = "Smith";
+    });
+    app.directive("sayHello",function(){
+        return {
+            restrict:'E',
+            scope:{
+                name:'@nameAttr'
+            },
+            link:function(scope, elem, attrs){
+                scope.name = "Jane";
+//                所谓单向绑定，当页面加载时，父级 scope 初始值不会被修改为 Jane
+            },
+            template:"<h3>hello,{{name}}</h3>"
+        }
+    });
+</script>
+</body>
+</html>

@@ -23,7 +23,17 @@ app.directive('elementdirective', function () {
     //约束，指令能用在哪儿
     restrict: 'E',
     //模板
-    template: '<span>This is element directive</span>'
+    template: '<span>This is element directive</span>',
+    replace: false
+    /*
+    当 replace 为 true:
+    <span>This is element directive</span>
+    当 replace 为 false:
+     <elementdirective>
+         <span>This is element directive</span>
+     </elementdirective>
+    */
+
   };
   return json;
 });

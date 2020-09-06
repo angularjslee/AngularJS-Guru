@@ -11,6 +11,7 @@ app.controller("myController", function ($scope) {
     return {
         scope: {
             action: "&"
+            //action: "="  // 不知为何也起作用
         },
         template: '<input type="button" value="在directive中执行父scope定义的方法" ng-click="action()"/>'
     }
