@@ -21,6 +21,7 @@
 <body ng-app="formApp" ng-controller="formCtrl">
 <h3>AngularJS Form Input Fields Validation</h3>
 <form name="personForm" ng-submit="sendForm()">
+    <p>Text</p>
     <label for="name">Name</label>
     <input id="name" name="name" type="text" ng-model="person.name" required />
     <span class="error" ng-show="personForm.name.$error.required"> Required! </span>
@@ -34,11 +35,12 @@
     <span class="error" ng-show="personForm.mobile.$error.required">Required number!</span>
     <span class="error" ng-show="personForm.mobile.$error.mobile">Invalid mobile!</span>
     <br /><br />
-    <label for="email">Email</label>
-    <input id="email" name="email" type="email" ng-model="person.email" required />
-    <span class="error" ng-show="personForm.email.$error.required">Required!</span>
-    <span class="error" ng-show="personForm.email.$error.email">Invalid Email!</span>
-    <br /><br />
+    <!--Duplicated with app21-form-validation-email-->
+    <!--<label for="email">Email</label>-->
+    <!--<input id="email" name="email" type="email" ng-model="person.email" required />-->
+    <!--<span class="error" ng-show="personForm.email.$error.required">Required!</span>-->
+    <!--<span class="error" ng-show="personForm.email.$error.email">Invalid Email!</span>-->
+    <!--<br /><br />-->
     <input type="checkbox" ng-model="terms" name="terms" id="terms" required />
     <label for="terms">I Agree to the terms.</label>
     <span class="error" ng-show="personForm.terms.$error.required">You must agree to the terms</span>

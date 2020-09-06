@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf 8">
+    <title>Guru99</title>
+    <script src="../lib/angular-1.8.0/angular.min.js"></script>
+    <script src="../lib/jquery-3.5.1.min.js"></script>
+</head>
+
+<body>
+<div ng-app="emailExample">
+    <form name="myForm" ng-controller="ExampleController">
+        <label>Email:
+            <input type="email" name="input" ng-model="email.text" required>
+        </label>
+        <div role="alert">
+      <span class="error" ng-show="myForm.input.$error.required">
+        Required!</span>
+      <span class="error" ng-show="myForm.input.$error.email">
+        Not valid email!</span>
+        </div>
+        <tt>text = {{email.text}}</tt><br/>
+        <tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br/>
+        <tt>myForm.input.$error = {{myForm.input.$error}}</tt><br/>
+        <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
+        <tt>myForm.$error.required = {{!!myForm.$error.required}}</tt><br/>
+        <tt>myForm.$error.email = {{!!myForm.$error.email}}</tt><br/>
+    </form>
+
+    <script src="app.js"></script>
+
+</body>
+</html>

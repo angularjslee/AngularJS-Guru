@@ -17,8 +17,9 @@
         <p>Edit email box, view the status</p>
         <p>Valid: <strong>{{myForm.myAddress.$valid}}</strong> (if the input value is valid, it's true)</p>
         <p>Dirty: <strong>{{myForm.myAddress.$dirty}}</strong> (if the value is changed, it's true)</p>
-        <p>Touched: <strong>{{myForm.myAddress.$touched}}</strong> (if clicked, it's true)</p>
-        <p>Pristine: <strong>{{myForm.myAddress.$pristine}}</strong> (if no input records, it's true)</p>
+        <p>Touched: <strong>{{myForm.myAddress.$touched}}</strong> (if clicked, it's true)</p>              <!--表示元素获取焦点，相应的失去焦点： ng-untouched-->
+        <p>Pristine: <strong>{{myForm.myAddress.$pristine}}</strong> (if no input records, it's true)</p>   <!--表示元素未被使用-->
+        <p>Empty: <strong>{{myForm.myAddress.$empty}}</strong> (if empty, it's true)</p>
 
     </form>
     <hr>

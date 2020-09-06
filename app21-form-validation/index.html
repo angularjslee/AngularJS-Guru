@@ -30,10 +30,30 @@
     <hr>
     <!--RUNOOB.COM-->
     <h1>Verify User's Input</h1>
-    <form ng-app="" name="myForm">
+    <form ng-app="" name="myForm1">
         Email:
         <input type="email" name="myAddress" ng-model="text">
-        <span ng-show="myForm.myAddress.$error.email">This is not a valid email</span>
+        <span ng-show="myForm1.myAddress.$error.email">This is not a valid email</span>
+        <!--pay attention to (form's name).(input's name).$error.email-->
+    </form>
+    <hr>
+    <!--Official Website-->
+    <form name="myForm" ng-controller="ExampleController">
+        <label>Email:
+            <input type="email" name="input" ng-model="email.text" required>
+        </label>
+        <div role="alert">
+      <span class="error" ng-show="myForm.input.$error.required">
+        Required!</span>
+      <span class="error" ng-show="myForm.input.$error.email">
+        Not valid email!</span>
+        </div>
+        <tt>text = {{email.text}}</tt><br/>
+        <tt>myForm.input.$valid = {{myForm.input.$valid}}</tt><br/>
+        <tt>myForm.input.$error = {{myForm.input.$error}}</tt><br/>
+        <tt>myForm.$valid = {{myForm.$valid}}</tt><br/>
+        <tt>myForm.$error.required = {{!!myForm.$error.required}}</tt><br/>
+        <tt>myForm.$error.email = {{!!myForm.$error.email}}</tt><br/>
     </form>
 
     <script src="app.js"></script>
