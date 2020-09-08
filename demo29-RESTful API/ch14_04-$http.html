@@ -1,0 +1,90 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8"> 
+    <title>ch14_04</title>
+    <script src="../lib/angular-1.5.5/angular.js"></script>
+    <link rel="stylesheet" href="../lib/bootstrap-4.3.1-dist/css/bootstrap-theme.css"/>
+    <link rel="stylesheet" href="../lib/bootstrap-4.3.1-dist/css/bootstrap.css"/>
+</head>
+<body>
+<div ng-controller="MainController">
+   <table class="table table-bordered">
+   <thead>
+      <tr class="bg-info">
+         <th>姓名</th>
+         <th>年龄</th>
+         <th>性别</th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr ng-repeat="person in persons">
+         <td>{{person.name}}</td>
+         <td>{{person.age}}</td>
+         <td>{{person.sex}}</td>
+      </tr>
+   </tbody>
+</table>
+ <button class="btn btn-info" ng-click="getInfo()">获取信息</button>
+</div>
+<script>
+    var app = angular.module("app", []);
+    app.controller("MainController", function($scope,$http) {
+         $scope.getInfo = function(){
+             var res = $http.get("http://localhost:8081/listPersons");
+             res.success(function(data,status,headers,config){
+                $scope.persons = data;
+             }).error(function(data,status,headers,config){
+                alert("error,status=>" + status);
+             });
+         };
+    });  
+</script>
+</body>
+</html>
+
+
+
+<!--
+使用Express 构建RestfulAPI 服务
+
+Express 核心特性
+* 设置中间件来响应 HTTP 请求
+* 定义路由表来执行不同的HTTP 请求动作
+* 通过向模板产地参数来动态渲染HTML 页面
+
+
+
+
+编辑 server.js
+node server.js
+chrome f
+[{"name":"Smith1","age":23,"sex":"woman"},
+{"name":"Smith2","age":24,"sex":"man"},{"name":"Smith3","age":25,"sex":"woman"},
+{"name":"Smith4","age":26,"sex":"man"},{"name":"Smith5","age":27,"sex":"woman"}]
+
+Postman Get localhost:8081/listPersons
+可以得到同样结果。
+如此便能模仿一个 restful API 获取数据
+上面的代码便能获取到数据来源
+
+var express = require('express');
+var app = express();
+
+//listenPersons
+var persons = [
+{name: "Smith1", age: 23, sex: "woman"},
+{name: "Smith2", age: 24, sex: "man"},
+{name: "Smith3", age: 25, sex: "woman"},
+{name: "Smith4", age: 26, sex: "man"},
+{name: "Smith5", age: 27, sex: "woman"}
+];
+
+app.get('/listPersons', function (req, res) {
+res.header("Access-Control-Allow-Origin", "*");
+res.json(persons)
+});
+
+var server = app.listen(8081, function () {
+console.log('listening on port %d', server.address().port);
+});-->

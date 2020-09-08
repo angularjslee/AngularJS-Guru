@@ -1,0 +1,77 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>ch14_05</title>
+    <script src="../lib/angular-1.5.5/angular.js"></script>
+    <script src="../lib/angular-1.5.5/angular-resource.js"></script>
+    <link rel="stylesheet" href="../lib/bootstrap-4.3.1-dist/css/bootstrap-theme.css"/>
+    <link rel="stylesheet" href="../lib/bootstrap-4.3.1-dist/css/bootstrap.css"/>
+</head>
+<body>
+<div class="container" ng-controller="MainController">
+    <div style="margin-top:20px;margin-bottom:20px;" class="input-group">
+        <input ng-model="uname" placeholder="请输入姓名"
+               type="text" class="form-control">
+        <span ng-click="qryPersonInfo()"
+              class="input-group-addon btn btn-success">
+        查询</span>
+    </div>
+    <table ng-show="showInfo" class="table table-bordered">
+        <thead>
+        <tr class="bg-info">
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>性别</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{person.name}}</td>
+            <td>{{person.age}}</td>
+            <td>{{person.sex}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script>
+    //             $resource 是在$http 上做了一层封装， 为 RESTfulAPI 的 CRUD 操作提供了方便，
+    //             $resource 在 ngResource 模块中定义的。
+    //             ngResource 在单独的angular-resource.js 中，先引入angular-resource.js
+    var app = angular.module("app", ['ngResource']);
+    //    引入ngResource之后，$resource 便能应用了
+    /*
+     $resource 对 RESTful API 的设计有一定的要求
+     URL             | 请求方式 |    请求正文    |    结果
+     /api/entries    | GET     |      空       | 返回所有记录
+     /api/entries    | POST    | JSON 格式字符串| 创建一条新纪录
+     /api/entries:id | GET     |      空       | 获取对应id 的记录
+     /api/entries:id | PUT     | JSON 格式字符串| 更新对应id 的记录
+     /api/entries:id | DELETE  |      空       | 删除对应id 的记录
+     */
+
+    app.controller("MainController", function ($scope, $resource) {
+        $scope.qryPersonInfo = function () {
+//            name 为占位符，$resource 服务返回一个对象，该对象是与RESTful 的后端服务进行交互的接口：
+//                1. get() 获取单个资源，可以以对象的形参传入多个请求参数
+//                2. query() 用于向指定 URL 发送一个GET 请求， 并期望返回一个 JSON 格式的资源对象集合
+//                3. save() 向指定URL 发送一个 POST 请求，并用数据体来生气请求体，用于在服务器上生成一个新资源
+//                4. delete() 向指定 URL 发送一个 DELETE 请求， 并用数据体来生成请求体，被用来在服务器上删除一个实例
+//                5. remove() 同 delete() 怕与关键字冲突，所以常用remove（）
+            var Person = $resource('http://localhost:8081/person/:name', {name: '@name'});
+            Person.get({name: $scope.uname})
+//                    $promise 属性为一个 Promise 对象， 调用promise 对象的then 方法对福区段相应数据进行处理
+//                    若服务端存在对应人员信息，显示，否则不显示
+                    .$promise.then(function (person) {
+                if (person.name != undefined) {
+                    $scope.showInfo = true;
+                    $scope.person = person;
+                } else {
+                    $scope.showInfo = false;
+                }
+            });
+        };
+    });
+</script>
+</body>
+</html>

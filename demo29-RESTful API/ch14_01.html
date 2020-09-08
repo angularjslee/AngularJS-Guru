@@ -1,0 +1,53 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8"> 
+    <title>ch14_01</title>
+    <script src="../lib/angular-1.5.5/angular.js"></script>
+</head>
+<body>
+<div ng-controller="MainController">
+   <div>结果：{{result}}</div>
+   <div>执行时间：{{totalTime}}</div>
+   <div>{{failure}}</div>
+</div>
+<script>
+    var app = angular.module("app", []);
+    app.controller("MainController", function($scope,$q) {
+       function add(x,y){
+           var q = $q.defer();
+//           defer 对象的用途 是与 Promise 相关联，提供一些API处理成功或失败的任务状态，具有如下属性和方法
+//           resolve(value): 表示当前任务状态成功，可以继续链式调用then 方法
+//           reject(reason): 失败，跳转到 catch 方法，类似于编程语言中的 try 。。。catch
+//           notify(value): 用于更新 Promise的执行状态，在Promise 被处理或被拒绝之前可能会被调用多次
+//           promise: -{Promise}: 和 Defered 对象 相关联的 Promise 对象
+
+//           用 setTimeout 模拟异步调用
+           setTimeout(function() {
+               var result = x + y;
+               if(result >= 0) {
+                    q.resolve(result);      //      成功
+               } else {
+                    q.reject('negatvie value:' + result);
+                   // 失败，此时会调用 Promise对象的catch 方法，
+                   // 最后返回和 Defered 对象相关联的Promise 对象
+
+               }
+           },300);
+           return q.promise;
+       }
+       var startTime = Date.now();
+       var promise = add(20,30);
+       promise.then(function(result){
+            return add(result,40);
+       }).then(function(result){
+           $scope.result = result;
+       }).catch(function(failure){
+           $scope.failure = failure;
+       }).finally(function(){
+           $scope.totalTime = Date.now() - startTime;
+       });
+    });  
+</script>
+</body>
+</html>
